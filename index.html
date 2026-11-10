@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#11263b">
+    <meta name="description" content="以商务咨询对话方式整理的俄罗斯历史考试问答，支持手机与桌面阅读。">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="俄史咨询">
+    <title>俄罗斯史考试咨询</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="assets/app-icon-192.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6.5"></circle>
+        <path d="m16 16 4.2 4.2"></path>
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M18 6 6 18"></path>
+      </symbol>
+      <symbol id="icon-chevron" viewBox="0 0 24 24">
+        <path d="m8 10 4 4 4-4"></path>
+      </symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24">
+        <rect x="8" y="8" width="11" height="11" rx="2"></rect>
+        <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="m5 12 4.2 4.2L19 6.8"></path>
+      </symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14M14 7l5 5-5 5"></path>
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M20 15.4A8 8 0 0 1 8.6 4 8.1 8.1 0 1 0 20 15.4Z"></path>
+      </symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3.5"></circle>
+        <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"></path>
+      </symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24">
+        <path d="M12 3v12M7 10l5 5 5-5M5 20h14"></path>
+      </symbol>
+    </svg>
+
+    <div class="mobile-bar">
+      <button class="icon-button" id="openRail" type="button" aria-label="打开专题导航" aria-controls="topicRail" aria-expanded="false">
+        <svg aria-hidden="true"><use href="#icon-menu"></use></svg>
+      </button>
+      <a class="mobile-brand" href="#top" aria-label="返回咨询页顶部">
+        <span class="mobile-brand-mark">ИР</span>
+        <span>俄罗斯史咨询</span>
+      </a>
+      <button class="icon-button" id="mobileTheme" type="button" aria-label="切换夜读模式">
+        <svg aria-hidden="true"><use href="#icon-moon"></use></svg>
+      </button>
+    </div>
+
+    <div class="app-shell" id="top">
+      <div class="rail-backdrop" id="railBackdrop" hidden></div>
+
+      <aside class="topic-rail" id="topicRail" aria-label="咨询专题导航">
+        <div class="rail-heading">
+          <div class="brand-lockup">
+            <span class="brand-mark" aria-hidden="true">
+              <span>И</span><span>Р</span>
+            </span>
+            <div>
+              <p class="brand-name">История Desk</p>
+              <p class="brand-cn">俄罗斯史备考台</p>
+            </div>
+          </div>
+          <button class="icon-button rail-close" id="closeRail" type="button" aria-label="关闭专题导航">
+            <svg aria-hidden="true"><use href="#icon-close"></use></svg>
+          </button>
+        </div>
+
+        <label class="search-box" for="searchInput">
+          <svg aria-hidden="true"><use href="#icon-search"></use></svg>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="搜索问题、人物或年份">
+          <kbd>/</kbd>
+        </label>
+
+        <section class="rail-progress" aria-labelledby="progressLabel">
+          <div class="rail-section-head">
+            <span id="progressLabel">本轮进度</span>
+            <strong><span id="reviewCount">0</span> / 14</strong>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <span id="progressBar"></span>
+          </div>
+        </section>
+
+        <nav class="topic-list" id="topicList" aria-label="历史专题"></nav>
+
+        <div class="rail-foot">
+          <button class="rail-link" id="themeToggle" type="button">
+            <svg aria-hidden="true"><use href="#icon-moon"></use></svg>
+            <span>切换夜读</span>
+          </button>
+          <p>资料：考试试卷 · 5 页手写笔记</p>
+        </div>
+      </aside>
+
+      <main class="conversation-column">
+        <header class="conversation-header">
+          <div class="conversation-identity">
+            <div class="adviser-avatar" aria-hidden="true">ИК</div>
+            <div>
+              <h1>俄罗斯史考试咨询</h1>
+              <p><span class="live-dot" aria-hidden="true"></span> 14 条结构化答复已就绪</p>
+            </div>
+          </div>
+          <div class="header-actions">
+            <button class="mode-toggle" id="conciseToggle" type="button" aria-pressed="false">
+              <span class="toggle-track" aria-hidden="true"><span></span></span>
+              <span>只看结论</span>
+            </button>
+            <button class="desktop-theme icon-button" id="desktopTheme" type="button" aria-label="切换夜读模式">
+              <svg aria-hidden="true"><use href="#icon-moon"></use></svg>
+            </button>
+          </div>
+        </header>
+
+        <nav class="dispatch-strip" id="dispatchStrip" aria-label="历史时期时间线"></nav>
+
+        <section class="thread-intro" aria-labelledby="threadTitle">
+          <div>
+            <h2 id="threadTitle">全部咨询记录</h2>
+          </div>
+          <p id="resultSummary">14 个问题 · 按考试题号排列</p>
+        </section>
+
+        <div class="chat-thread" id="chatThread" aria-live="polite"></div>
+
+        <footer class="thread-footer">
+          <div class="closing-note">
+            <span class="closing-mark" aria-hidden="true"></span>
+            <p><strong>咨询范围已完整覆盖。</strong>从伊凡四世到 1917 年，共五组专题。可下载 Word 版本用于离线复习。</p>
+          </div>
+          <a class="download-link" href="俄罗斯历史考试问题_参考答案.docx" download>
+            <svg aria-hidden="true"><use href="#icon-download"></use></svg>
+            下载 Word 版
+          </a>
+        </footer>
+      </main>
+
+      <aside class="brief-panel" aria-label="咨询摘要">
+        <div class="brief-heading">
+          <h2>本轮咨询</h2>
+          <p>针对考试题号的完整口答提纲，先给结论，再展开史实与评价。</p>
+        </div>
+
+        <div class="brief-stats">
+          <div><strong>14</strong><span>项问题</span></div>
+          <div><strong>5</strong><span>个专题</span></div>
+        </div>
+
+        <section class="brief-section">
+          <h3>时间轴</h3>
+          <ol class="mini-timeline">
+            <li><span>1565</span><p>特辖制开始<br><small>伊凡四世</small></p></li>
+            <li><span>1721</span><p>俄国称帝国<br><small>彼得一世</small></p></li>
+            <li><span>1767</span><p>《训令》<br><small>叶卡捷琳娜二世</small></p></li>
+            <li><span>1812</span><p>卫国战争<br><small>亚历山大一世</small></p></li>
+            <li><span>1917</span><p>二月与十月<br><small>帝国终结</small></p></li>
+          </ol>
+        </section>
+
+        <section class="brief-section correction-note">
+          <div class="section-label">
+            <h3>笔记订正</h3>
+            <span>04</span>
+          </div>
+          <ul>
+            <li>库尔布斯基出逃早于特辖制正式建立。</li>
+            <li>《训令》不是已经生效的法典。</li>
+            <li>1812 年是拿破仑先发动入侵。</li>
+            <li>战后俄国宜表述为主要陆军强国。</li>
+          </ul>
+        </section>
+
+        <section class="brief-section source-note">
+          <h3>资料标记</h3>
+          <p>答案依据原试卷与手写笔记整理，已补充因果链和关键史实。</p>
+        </section>
+      </aside>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <noscript>
+      <div class="noscript-note">
+        本页需要 JavaScript 显示咨询对话。你也可以<a href="俄罗斯历史考试问题_参考答案.docx">直接下载 Word 答案</a>。
+      </div>
+    </noscript>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

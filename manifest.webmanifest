@@ -1,0 +1,22 @@
+{
+  "name": "俄罗斯史考试咨询",
+  "short_name": "俄史咨询",
+  "description": "以商务咨询对话方式整理的俄罗斯历史考试问答",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#e4e9ee",
+  "theme_color": "#11263b",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "assets/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
