@@ -6,6 +6,11 @@
 
 网站作为静态站点部署在 GitHub Pages，不依赖当前电脑保持开机，也不使用临时隧道。
 
+## 14 题极简背诵版
+
+- GitHub Pages：https://jinhaoliu169-design.github.io/russian-history-consultation/memory/
+- 可直接定位题目：https://jinhaoliu169-design.github.io/russian-history-consultation/memory/#q5
+
 ## 功能
 
 - 按五个历史时期筛选
